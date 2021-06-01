@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ja a DiXit</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+
+<body>
+<h1>Co si myslim ja o hre DiXit</h1>
+
+<tr th:each="post, iterStat : ${post}">
+  <td th:utext="${post.title}">zde bude nadpis</td>
+  <td th:utext="${post.author}">zde bude jmeno autora</td>
+  <td th:utext="${post.perex}">zde bude uvod (perex)</td>
+  <td th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">zde bude datum zverejneni</td>
+</tr>
+</body>
+
+</html>
+
