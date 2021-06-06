@@ -15,9 +15,5 @@ import java.time.LocalDate;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-
-    @Query
     Post findBySlug(String slug);
-
-    Page<Post> findByPublishedBefore(LocalDate datumPublikovani,Pageable pageable);
 }

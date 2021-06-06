@@ -12,9 +12,9 @@ import java.time.LocalDate;
 
 /**
  * vytvor PostService s anotaci @Autowired -> bude ziskavat PostRepository
+ * metoda list(), vraci seznam všech postů
  * metoda singlePost(String slug) <- najde jeden post podle zadaného slug a vrátí ho
  * (vytvorila jsem pro singlePost metodu v PostRepository)
- * metoda list(), vraci seznam všech postů
  * metoda pro zobrazeni 20 zaznamu s pouzitim metody PageRequest.of(0, 20)
  */
 
@@ -27,16 +27,14 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public Post singlePost(String slug) {
+    public Page<Post> list(Pageable pageable){
+        PageRequest.of(0,20);
+        return postRepository.findAll(pageable);
+    }
+
+    public Post singlePost(String slug){
         return postRepository.findBySlug(slug);
     }
-
-    public Page<Post> list(Pageable pageable) {
-        PageRequest.of(0, 20);
-        LocalDate datumPublikovani = LocalDate.now();
-        return postRepository.findByPublishedBefore(datumPublikovani, pageable);
-    }
-
 
 }
 

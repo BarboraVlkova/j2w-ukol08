@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+
+<body>
+    <h1>Kouzelný svět</h1>
+
+    <tbody>
+    <tr th:each="post, iterStat : ${detailPostu}">
+        <td th:text="${detailPostu.body}">Text clanku</td>
+    </tr>
+    </tbody>
+
+<div>
+    <a href="/" style="color: blue">Zpět</a>
+</div>
+
+</body>
+</html>
+

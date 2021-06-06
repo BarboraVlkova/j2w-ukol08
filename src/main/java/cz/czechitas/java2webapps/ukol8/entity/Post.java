@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDate;
 
 /**
+ * Entita pro uložení údajů o adrese.
  * pridej anotace @Entity, @Id a @GeneratedValue
  * byly by tam anotace @UniqueElements, @Lenght (max=100), @NotNull, @Lenght (max=225), @DateTimeFormat
  * vytvor gettery a settery
