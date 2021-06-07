@@ -29,7 +29,7 @@ public class PostService {
 
     public Page<Post> list(Pageable pageable){
         PageRequest.of(0,20);
-        return postRepository.findAll(pageable);
+        return postRepository.findByPublishedBefore(LocalDate.now(), pageable);
     }
 
     public Post singlePost(String slug){

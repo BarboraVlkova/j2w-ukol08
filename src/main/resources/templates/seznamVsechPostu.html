@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
-
 <body>
 
 <main class="container">
@@ -25,10 +23,10 @@
 
     <tbody>
     <tr th:each="post : ${seznamPostu}">
-        <td th:text="${post.title}">Název</td>
-        <td th:text="${post.author}">Autor</td>
-        <td th:text="${post.perex}">Úvod</td>
-        <td th:text="${#temporals.format(post.published, 'd. MMMM yyyy')}">Datum zveřejnění</td>
+        <td th:utext="${post.title}">Název</td>
+        <td th:utext="${post.author}">Autor</td>
+        <td th:utext="${post.perex}">Úvod</td>
+        <td th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">Datum zveřejnění</td>
     </tr>
     </tbody>
 </table>
