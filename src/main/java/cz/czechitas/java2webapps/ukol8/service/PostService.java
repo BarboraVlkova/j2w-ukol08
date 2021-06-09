@@ -27,9 +27,8 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public Page<Post> list(Pageable pageable){
-        PageRequest.of(0,20);
-        return postRepository.findByPublishedBefore(LocalDate.now(), pageable);
+    public Page<Post> list(){
+        return postRepository.findByPublishedBefore(LocalDate.now(), PageRequest.of(0, 20));
     }
 
     public Post singlePost(String slug){

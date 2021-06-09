@@ -6,20 +6,13 @@
     <title>Blog</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
-
-<body>
-    <h1>Kouzelný svět</h1>
-
-    <tbody>
-    <tr th:each="post : ${detailPostu}">
-        <td th:utext="${detailPostu.body}">Text clanku</td>
-    </tr>
-    </tbody>
-
-<div>
-    <a href="/" class="button" style="color: blue">Zpět</a>
+<h1>Kouzelný svět</h1>
+<div th:each="post, iterStat : ${detailPostu}">
+    <div>Název: <span th:utext="${detailPostu.title}"></span></div>
+    <div>Autor: <span th:utext="${detailPostu.author}"></span></div>
+    <div>Datum zveřejnění: <span th:utext="${#temporals.format(detailPostu.published, 'd. MMMM yyyy')}"></span></div>
+    <div th:utext="${detailPostu.body}"></div>
 </div>
-
-</body>
+<a href="/" class="button" style="color: blue">Zpět na seznam</a>
 </html>
 

@@ -6,33 +6,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 <body>
-
 <main class="container">
-
-<h1>Blog z kouzelnického světa</h1>
-
-<table class="u-full-width">
-    <thead>
-    <tr>
-        <th>Název</th>
-        <th>Autor</th>
-        <th>Úvod (perex)</th>
-        <th>Datum zveřejnění</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each="post : ${seznamPostu}">
-        <td th:utext="${post.title}">Název</td>
-        <td th:utext="${post.author}">Autor</td>
-        <td th:utext="${post.perex}">Úvod</td>
-        <td th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">Datum zveřejnění</td>
-    </tr>
-    </tbody>
-</table>
-
-    <a th:href="@{/post/${seznamPostu}}" style="color: green" >Klikni na detail</a>
-
+    <h1>Blog z kouzelnického světa</h1>
+    <div th:each="post : ${seznamPostu}">
+        <div>
+                <div>Název: <span th:utext="${post.title}"></span></div>
+                <div>Autor: <span th:utext="${post.author}"></span></div>
+                <div>Datum zveřejnění: <span th:utext="${#temporals.format(post.published, 'd. MMMM yyyy')}">Datum zveřejnění</span></div>
+                <div>Úvod: <span th:utext="${post.perex}"></span></div>
+            <div>
+                <a th:href="@{/post/{slug}(slug=${post.slug})}" style="color: green">Detail článku</a>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>
